@@ -1,0 +1,496 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'PT Sans', sans-serif;
+    background: #f8f9fa;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header */
+.main-header {
+    background: #ffffff;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 68px;
+}
+
+.nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+    color: #0d47a1;
+}
+
+.nav-brand i {
+    font-size: 26px;
+    color: #007bff;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-link {
+    padding: 8px 16px;
+    text-decoration: none;
+    color: #6c757d;
+    font-size: 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.nav-link:hover {
+    background: #f0f7ff;
+    color: #007bff;
+}
+
+.nav-link.active {
+    color: #007bff;
+    background: #f0f7ff;
+}
+
+.nav-link.logout:hover {
+    background: #fef2f2;
+    color: #dc2626;
+}
+
+.main-content {
+    flex: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 24px;
+    width: 100%;
+}
+
+/* Профиль пользователя */
+.profile-header {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 30px 32px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    margin-bottom: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.profile-avatar {
+    width: 80px;
+    height: 80px;
+    background: #f0f7ff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 36px;
+    color: #007bff;
+}
+
+.profile-details h1 {
+    font-size: 24px;
+    color: #0d47a1;
+    font-weight: 400;
+    margin-bottom: 4px;
+}
+
+.profile-details .profile-email {
+    color: #6c757d;
+    font-size: 15px;
+}
+
+.profile-details .profile-phone {
+    color: #6c757d;
+    font-size: 14px;
+    margin-top: 2px;
+}
+
+.profile-details .profile-phone i {
+    color: #007bff;
+    margin-right: 4px;
+}
+
+.profile-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.btn-primary {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+
+.btn-primary:hover {
+    background: #0d47a1;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.3);
+}
+
+.btn-secondary {
+    background: #ffffff;
+    color: #007bff;
+    border: 1.5px solid #007bff;
+    padding: 10px 24px;
+    border-radius: 8px;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+
+.btn-secondary:hover {
+    background: #f0f7ff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.12);
+}
+
+/* Заявки */
+.applications-section h2 {
+    font-size: 22px;
+    color: #0d47a1;
+    font-weight: 400;
+    margin-bottom: 16px;
+}
+
+.applications-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.application-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 20px 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    transition: all 0.3s ease;
+}
+
+.application-card:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.application-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.application-info .app-id {
+    font-size: 13px;
+    color: #6c757d;
+}
+
+.application-info .app-details {
+    font-size: 15px;
+    color: #333;
+}
+
+.application-info .app-details strong {
+    color: #0d47a1;
+}
+
+.application-info .app-date {
+    font-size: 13px;
+    color: #6c757d;
+}
+
+.application-status {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 4px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+.status-new {
+    background: #e3f2fd;
+    color: #0d47a1;
+}
+
+.status-training {
+    background: #f0f7ff;
+    color: #007bff;
+}
+
+.status-completed {
+    background: #e8f5e9;
+    color: #2e7d32;
+}
+
+.btn-review {
+    background: #ffffff;
+    color: #007bff;
+    border: 1.5px solid #007bff;
+    padding: 6px 16px;
+    border-radius: 6px;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-review:hover:not(:disabled) {
+    background: #007bff;
+    color: white;
+}
+
+.btn-review:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.btn-review.active {
+    background: #007bff;
+    color: white;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: #6c757d;
+}
+
+.empty-state i {
+    font-size: 48px;
+    color: #e0e5e9;
+    margin-bottom: 12px;
+    display: block;
+}
+
+.empty-state a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.empty-state a:hover {
+    text-decoration: underline;
+}
+
+/* Футер */
+.main-footer {
+    background: #ffffff;
+    border-top: 1px solid #f0f0f0;
+    padding: 40px 0 24px;
+    margin-top: 24px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.footer-address {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    color: #0d47a1;
+}
+
+.footer-address i {
+    color: #007bff;
+    font-size: 18px;
+}
+
+.footer-phone {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+}
+
+.footer-phone i {
+    color: #007bff;
+    font-size: 18px;
+}
+
+.footer-phone a {
+    color: #0d47a1;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-phone a:hover {
+    color: #007bff;
+    text-decoration: underline;
+}
+
+.footer-divider {
+    width: 80px;
+    height: 2px;
+    background: #e0e5e9;
+    margin: 4px 0;
+}
+
+.footer-info {
+    font-size: 14px;
+    color: #6c757d;
+    text-align: center;
+    max-width: 500px;
+    line-height: 1.5;
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 16px auto 0;
+    padding: 20px 24px 0;
+    border-top: 1px solid #f0f0f0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+    color: #0d47a1;
+}
+
+.footer-brand i {
+    color: #007bff;
+}
+
+.footer-copy {
+    color: #6c757d;
+    font-size: 13px;
+}
+
+/* Адаптация под разные разрешения экрана */
+@media (max-width: 768px) {
+    .profile-header {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 24px 20px;
+    }
+
+    .profile-info {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-actions {
+        justify-content: center;
+    }
+
+    .application-card {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+
+    .application-status {
+        justify-content: center;
+    }
+
+    .nav-container {
+        height: auto;
+        padding: 12px 16px;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .nav-menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-content {
+        padding: 20px 12px;
+    }
+
+    .profile-avatar {
+        width: 60px;
+        height: 60px;
+        font-size: 28px;
+    }
+
+    .profile-details h1 {
+        font-size: 20px;
+    }
+
+    .application-card {
+        padding: 16px;
+    }
+}

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пассажирам.РФ - Вход и регистрация</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="logo-section">
+                <i class="fas fa-bus"></i>
+                <h1>Пассажирам.РФ</h1>
+            </div>
+
+            <!-- Переключатель вкладок -->
+            <div class="tab-switcher">
+                <button class="tab-btn active" data-tab="login">
+                    <i class="fas fa-sign-in-alt"></i>
+                    <span>Вход</span>
+                </button>
+                <button class="tab-btn" data-tab="register">
+                    <i class="fas fa-user-plus"></i>
+                    <span>Регистрация</span>
+                </button>
+            </div>
+
+            <!-- Панель входа -->
+            <div class="auth-panel active" id="loginPanel">
+                <form id="loginForm" class="auth-form">
+                    <div id="loginGeneralError" class="general-error">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <span>Неверный логин или пароль</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="loginLogin">
+                            <i class="fas fa-user"></i> Логин
+                        </label>
+                        <input type="text" id="loginLogin" placeholder="Введите логин" required>
+                        <span class="error-message" id="loginLoginError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="loginPassword">
+                            <i class="fas fa-lock"></i> Пароль
+                        </label>
+                        <input type="password" id="loginPassword" placeholder="Введите пароль" required>
+                        <span class="error-message" id="loginPasswordError"></span>
+                    </div>
+
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-sign-in-alt"></i> Войти
+                    </button>
+                </form>
+            </div>
+
+            <!-- Панель регистрации -->
+            <div class="auth-panel" id="registerPanel">
+                <form id="registerForm" class="auth-form">
+                    <div class="form-group">
+                        <label for="regLogin">
+                            <i class="fas fa-user"></i> Логин
+                        </label>
+                        <input type="text" id="regLogin" placeholder="Введите логин (мин. 6 символов)" required>
+                        <span class="error-message" id="regLoginError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="regPassword">
+                            <i class="fas fa-lock"></i> Пароль
+                        </label>
+                        <input type="password" id="regPassword" placeholder="Введите пароль (мин. 8 символов)" required>
+                        <span class="error-message" id="regPasswordError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="regFullName">
+                            <i class="fas fa-id-card"></i> ФИО
+                        </label>
+                        <input type="text" id="regFullName" placeholder="Введите ваше полное имя" required>
+                        <span class="error-message" id="regFullNameError"></span>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group half">
+                            <label for="regBirthDate">
+                                <i class="fas fa-calendar-alt"></i> Дата рождения
+                            </label>
+                            <input type="date" id="regBirthDate" required>
+                            <span class="error-message" id="regBirthDateError"></span>
+                        </div>
+                        <div class="form-group half">
+                            <label for="regPhone">
+                                <i class="fas fa-phone"></i> Телефон
+                            </label>
+                            <input type="tel" id="regPhone" placeholder="+7 (XXX) XXX-XX-XX" required>
+                            <span class="error-message" id="regPhoneError"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="regEmail">
+                            <i class="fas fa-envelope"></i> E-mail
+                        </label>
+                        <input type="email" id="regEmail" placeholder="example@mail.ru" required>
+                        <span class="error-message" id="regEmailError"></span>
+                    </div>
+
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-user-plus"></i> Зарегистрироваться
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+<script src="./main.js"></script>
+</body>
+</html>

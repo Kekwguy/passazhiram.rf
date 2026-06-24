@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Админ-панель - Пассажирам.РФ</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <!-- Страница логина админа -->
+    <div class="login-container active" id="loginContainer">
+        <div class="login-card">
+            <div class="logo-section">
+                <i class="fas fa-user-shield"></i>
+                <h1>Пассажирам.РФ</h1>
+                <p class="subtitle">Вход в панель администратора</p>
+                <span class="badge-admin">Защищенный доступ</span>
+            </div>
+
+            <form id="adminLoginForm" class="login-form">
+                <div id="adminLoginError" class="general-error">
+                    <i class="fas fa-exclamation-circle"></i>
+                    <span>Неверный логин или пароль администратора</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="adminLogin">
+                        <i class="fas fa-user"></i> Логин администратора
+                    </label>
+                    <input type="text" id="adminLogin" placeholder="Введите логин" value="Admin26">
+                    <span class="error-message" id="adminLoginErrorText"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="adminPassword">
+                        <i class="fas fa-lock"></i> Пароль
+                    </label>
+                    <input type="password" id="adminPassword" placeholder="Введите пароль" value="Demo20">
+                    <span class="error-message" id="adminPasswordErrorText"></span>
+                </div>
+
+                <button type="submit" class="btn-admin-login">
+                    <i class="fas fa-sign-in-alt"></i> Войти в админ-панель
+                </button>
+
+                <div class="back-link">
+                    <a href="../main/main.html">
+                        <i class="fas fa-arrow-left"></i> Вернуться на главную
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Панель администратора -->
+    <div class="admin-container" id="adminContainer">
+        <!-- Шапка -->
+        <header class="admin-header">
+            <div class="admin-header-left">
+                <i class="fas fa-user-shield"></i>
+                <h1>Панель администратора</h1>
+                <span class="badge">Admin</span>
+            </div>
+            <div class="admin-header-right">
+                <span class="admin-info">
+                    <i class="fas fa-user"></i> <strong id="adminName">Admin26</strong>
+                </span>
+                <button class="btn-logout" id="adminLogoutBtn">
+                    <i class="fas fa-sign-out-alt"></i> Выйти
+                </button>
+            </div>
+        </header>
+
+        <!-- Статистика -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span class="icon"><i class="fas fa-file-alt"></i></span>
+                <span class="number" id="totalApps">0</span>
+                <span class="label">Всего заявок</span>
+            </div>
+            <div class="stat-card">
+                <span class="icon"><i class="fas fa-clock"></i></span>
+                <span class="number" id="newApps">0</span>
+                <span class="label">Новые</span>
+            </div>
+            <div class="stat-card">
+                <span class="icon"><i class="fas fa-spinner"></i></span>
+                <span class="number" id="trainingApps">0</span>
+                <span class="label">В обучении</span>
+            </div>
+            <div class="stat-card">
+                <span class="icon"><i class="fas fa-check-circle"></i></span>
+                <span class="number" id="completedApps">0</span>
+                <span class="label">Завершено</span>
+            </div>
+        </div>
+
+        <!-- Фильтры -->
+        <div class="filters-section">
+            <span class="filter-label">
+                <i class="fas fa-filter"></i> Фильтры:
+            </span>
+            <select id="statusFilter">
+                <option value="all">Все статусы</option>
+                <option value="Новая">Новая</option>
+                <option value="Идет обучение">Идет обучение</option>
+                <option value="Обучение завершено">Обучение завершено</option>
+            </select>
+            <select id="transportFilter">
+                <option value="all">Все виды транспорта</option>
+                <option value="Автобус">Автобус</option>
+                <option value="Электробус">Электробус</option>
+                <option value="Трамвай">Трамвай</option>
+            </select>
+            <input type="text" id="searchFilter" placeholder="Поиск по ФИО..." style="flex:1; min-width:150px;">
+        </div>
+
+        <!-- Таблица -->
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th data-sort="id">№ <i class="fas fa-sort"></i></th>
+                        <th data-sort="user">Пользователь <i class="fas fa-sort"></i></th>
+                        <th data-sort="transport">Транспорт <i class="fas fa-sort"></i></th>
+                        <th data-sort="date">Дата <i class="fas fa-sort"></i></th>
+                        <th data-sort="payment">Оплата <i class="fas fa-sort"></i></th>
+                        <th data-sort="status">Статус <i class="fas fa-sort"></i></th>
+                        <th>Действие</th>
+                    </tr>
+                </thead>
+                <tbody id="applicationsTableBody">
+                    <!-- Данные будут вставлены через JS -->
+                </tbody>
+            </table>
+            <!-- Пагинация -->
+            <div class="pagination" id="pagination">
+                <button id="prevPage" disabled>
+                    <i class="fas fa-chevron-left"></i> Назад
+                </button>
+                <span class="page-info" id="pageInfo">Страница 1</span>
+                <button id="nextPage">
+                    Вперед <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Уведомление -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle toast-icon-success" id="toastIcon"></i>
+        <span class="toast-text" id="toastText">Статус обновлен</span>
+        <button class="toast-close" id="toastClose">&times;</button>
+    </div>
+
+<script src="./main.js"></script>
+</body>
+
+</html>

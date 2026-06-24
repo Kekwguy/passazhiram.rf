@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Создание заявки - Пассажирам.РФ</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div class="application-container">
+        <div class="application-card">
+            <div class="logo-section">
+                <i class="fas fa-file-alt"></i>
+                <h1>Пассажирам.РФ</h1>
+                <p class="subtitle">Создание заявки на обучение</p>
+            </div>
+
+            <form id="applicationForm" class="application-form">
+                <div id="successMessage" class="success-message">
+                    <i class="fas fa-check-circle"></i>
+                    <span id="successText">Заявка успешно создана!</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="transportType">
+                        <i class="fas fa-bus"></i> Вид транспорта <span class="required">*</span>
+                    </label>
+                    <select id="transportType" required>
+                        <option value="">Выберите вид транспорта</option>
+                        <option value="Автобус">Автобус</option>
+                        <option value="Электробус">Электробус</option>
+                        <option value="Трамвай">Трамвай</option>
+                    </select>
+                    <span class="error-message" id="transportError">Пожалуйста, выберите вид транспорта</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="startDate">
+                        <i class="fas fa-calendar-alt"></i> Дата начала обучения <span class="required">*</span>
+                    </label>
+                    <input type="text" id="startDate" placeholder="ДД.ММ.ГГГГ" required>
+                    <span class="error-message" id="dateError">Введите дату в формате ДД.ММ.ГГГГ</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="paymentMethod">
+                        <i class="fas fa-credit-card"></i> Способ оплаты <span class="required">*</span>
+                    </label>
+                    <select id="paymentMethod" required>
+                        <option value="">Выберите способ оплаты</option>
+                        <option value="Предоплата по QR-коду">Предоплата по QR-коду</option>
+                        <option value="Оплата картой МИР">Оплата картой МИР</option>
+                        <option value="Постоплата в офисе">Постоплата в офисе</option>
+                    </select>
+                    <span class="error-message" id="paymentError">Пожалуйста, выберите способ оплаты</span>
+                    <div class="payment-hint">
+                        <i class="fas fa-info-circle"></i>
+                        Оплата производится после одобрения заявки администратором
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">
+                        <i class="fas fa-paper-plane"></i> Отправить заявку
+                    </button>
+                    <a href="../profile/profile.html" class="btn-secondary">
+                        <i class="fas fa-arrow-left"></i> Назад
+                    </a>
+                </div>
+
+                <div class="form-footer">
+                    <a href="../profile/profile.html">← Вернуться в личный кабинет</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    
+</body>
+
+</html>

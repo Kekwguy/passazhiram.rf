@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пассажирам.РФ - Обучение перевозкам: автобус, электробус, трамвай</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <header class="main-header">
+        <nav class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-bus"></i>
+                <span>Пассажирам.РФ</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#" class="nav-link active">
+                    <i class="fas fa-home"></i> Главная
+                </a>
+                <a href="../admin/admin-panel.html" class="nav-link">
+                    <i class="fas fa-user-shield"></i> Админ-панель
+                </a>
+                <a href="../profile/profile.html" class="nav-link">
+                    <i class="fas fa-user"></i> Личный кабинет
+                </a>
+                <a href="#" class="nav-link logout" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i> Выйти
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="welcome-banner" id="welcomeBanner">
+            <div class="welcome-content">
+                <i class="fas fa-user-circle"></i>
+                <div>
+                    <h2>Добро пожаловать, <span id="userName">Пользователь</span>!</h2>
+                    <p>Рады видеть вас в системе обучения водителей пассажирских перевозок</p>
+                </div>
+            </div>
+        </div>
+
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>Обучение водителей пассажирских перевозок</h1>
+                <p class="hero-subtitle">
+                    Автобус - Электробус - Трамвай
+                </p>
+                <p class="hero-description">
+                    Пройдите качественное обучение по управлению пассажирским транспортом. 
+                    Опытные инструкторы, современная база, гибкий график.
+                </p>
+                <div class="hero-actions">
+                    <a href="../application/application.html" class="btn-primary">
+                        <i class="fas fa-plus-circle"></i> Подать заявку
+                    </a>
+                    <a href="../profile/profile.html" class="btn-secondary">
+                        <i class="fas fa-history"></i> Мои заявки
+                    </a>
+                </div>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <i class="fas fa-users"></i>
+                    <span class="stat-number">1,247</span>
+                    <span class="stat-label">Выпускников</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-clock"></i>
+                    <span class="stat-number">98%</span>
+                    <span class="stat-label">Успешных сдач</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-star"></i>
+                    <span class="stat-number">4.8</span>
+                    <span class="stat-label">Рейтинг</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="features-section">
+            <div class="section-header">
+                <h2>Как это работает</h2>
+                <p>Простой процесс обучения в 3 шага</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-pen"></i>
+                    </div>
+                    <h3>Подайте заявку</h3>
+                    <p>Выберите вид транспорта, дату и способ оплаты</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Ожидайте одобрения</h3>
+                    <p>Администратор рассмотрит вашу заявку и подтвердит обучение</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Начните обучение</h3>
+                    <p>Приходите на занятия и получайте новые навыки</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="transport-section">
+            <div class="section-header">
+                <h2>Виды транспорта</h2>
+                <p>Выберите направление для обучения</p>
+            </div>
+            <div class="transport-grid">
+                <div class="transport-card">
+                    <i class="fas fa-bus"></i>
+                    <h3>Автобус</h3>
+                    <p>Категория D</p>
+                    <span class="badge">Популярно</span>
+                </div>
+                <div class="transport-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Электробус</h3>
+                    <p>Категория D + электромобиль</p>
+                    <span class="badge">Новое</span>
+                </div>
+                <div class="transport-card">
+                    <i class="fas fa-train"></i>
+                    <h3>Трамвай</h3>
+                    <p>Специальное обучение</p>
+                    <span class="badge">Ограничено</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Галерея -->
+        <section class="gallery-section">
+            <div class="section-header">
+                <h2><i class="fas fa-images" style="color: #007bff;"></i> Галерея</h2>
+                <p>Фотографии нашего транспорта</p>
+            </div>
+            <div class="gallery-container" id="galleryContainer">
+                <div class="gallery-track" id="galleryTrack">
+                    <!-- Слайд 1 -->
+                    <div class="gallery-slide">
+                        <img src="../img/scale_1200.jpg" alt="Электробус Мосгортранс" onerror="this.parentElement.innerHTML=this.parentElement.innerHTML.replace('img','div').replace('img','div')">
+                        <div class="slide-overlay">
+                            <h3>Электробус Мосгортранс</h3>
+                            <p>Современный экологичный транспорт</p>
+                        </div>
+                    </div>
+                    <!-- Слайд 2 -->
+                    <div class="gallery-slide">
+                        <img src="../img/e295464686cc17d074cb2f14.jpg" alt="Трамвай Мосгортранс" onerror="this.parentElement.innerHTML=this.parentElement.innerHTML.replace('img','div').replace('img','div')">
+                        <div class="slide-overlay">
+                            <h3>Трамвай Мосгортранс</h3>
+                            <p>Надежный городской транспорт</p>
+                        </div>
+                    </div>
+                    <!-- Слайд 3 -->
+                    <div class="gallery-slide">
+                        <img src="../img/anonsPitchbussamarin(9).webp" alt="Электробус нового поколения" onerror="this.parentElement.innerHTML=this.parentElement.innerHTML.replace('img','div').replace('img','div')">
+                        <div class="slide-overlay">
+                            <h3>Электробус нового поколения</h3>
+                            <p>Без контактной сети, экологично</p>
+                        </div>
+                    </div>
+                    <!-- Слайд 4 -->
+                    <div class="gallery-slide">
+                        <img src="../img/1_large.png" alt="Беспилотный трамвай" onerror="this.parentElement.innerHTML=this.parentElement.innerHTML.replace('img','div').replace('img','div')">
+                        <div class="slide-overlay">
+                            <h3>Беспилотный трамвай</h3>
+                            <p>Инновационная разработка</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="gallery-btn prev" id="galleryPrev">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="gallery-btn next" id="galleryNext">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <div class="gallery-dots" id="galleryDots"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-address">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>г. Москва, ул. Большая Ордынка, д. 15</span>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="footer-phone">
+                <i class="fas fa-phone"></i>
+                <a href="tel:+74951234567">+7 (495) 123-45-67</a>
+                <span style="color: #6c757d; font-size: 14px; margin-left: 4px;">(горячая линия)</span>
+            </div>
+            <div class="footer-info">
+                <i class="fas fa-info-circle" style="color: #007bff; margin-right: 6px;"></i>
+                Если возникли вопросы или пожелания, позвоните нам. Ответим оперативно и подробно.
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-brand">
+                <i class="fas fa-bus"></i>
+                <span>Пассажирам.РФ</span>
+            </div>
+            <div class="footer-copy">
+                &copy; 2026 Пассажирам.РФ. Все права защищены.
+            </div>
+        </div>
+    </footer>
+
+<script src="./main.js"></script>
+</body>
+</html>
