@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Макет | Пассажирам.РФ</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'PT Sans', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* ===== Плейсхолдеры ===== */
+        .placeholder-line {
+            display: block;
+            background: #d0d0d0;
+            border-radius: 4px;
+            height: 14px;
+            margin-bottom: 8px;
+        }
+
+        .placeholder-line.short {
+            width: 60%;
+        }
+
+        .placeholder-line.medium {
+            width: 80%;
+        }
+
+        .placeholder-line.long {
+            width: 95%;
+        }
+
+        .placeholder-line.title {
+            height: 28px;
+            width: 70%;
+            margin-bottom: 12px;
+        }
+
+        .placeholder-line.subtitle {
+            height: 20px;
+            width: 50%;
+            margin-bottom: 10px;
+        }
+
+        .placeholder-icon {
+            color: #b0b0b0;
+            font-size: 28px;
+            display: inline-block;
+        }
+
+        .placeholder-icon.large {
+            font-size: 40px;
+        }
+
+        .placeholder-icon.xlarge {
+            font-size: 56px;
+        }
+
+        .placeholder-circle {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: #d0d0d0;
+            margin: 0 auto 12px;
+        }
+
+        .placeholder-box {
+            background: #e8e8e8;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+        }
+
+        /* ===== HEADER ===== */
+        .main-header {
+            background: #f0f0f0;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 68px;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 20px;
+            color: #888;
+        }
+
+        .nav-brand i {
+            font-size: 26px;
+            color: #b0b0b0;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-link {
+            padding: 8px 16px;
+            text-decoration: none;
+            color: #999;
+            font-size: 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .nav-link i {
+            color: #b0b0b0;
+        }
+
+        .nav-link:hover {
+            background: #e8e8e8;
+            color: #666;
+        }
+
+        .nav-link.active {
+            color: #666;
+            background: #e8e8e8;
+        }
+
+        .main-content {
+            flex: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 24px;
+            width: 100%;
+        }
+
+        /* ===== Баннер приветствия ===== */
+        .welcome-banner {
+            background: #f0f0f0;
+            border-radius: 16px;
+            padding: 20px 28px;
+            margin-bottom: 32px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .welcome-content {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .welcome-content i {
+            font-size: 40px;
+            color: #b0b0b0;
+        }
+
+        .welcome-content .placeholder-line {
+            background: #d0d0d0;
+        }
+
+        /* ===== Hero секция ===== */
+        .hero-section {
+            background: #f0f0f0;
+            border-radius: 20px;
+            padding: 50px 48px;
+            margin-bottom: 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .hero-content {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .hero-content .placeholder-line {
+            background: #d0d0d0;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+            min-width: 80px;
+        }
+
+        .stat-item i {
+            font-size: 28px;
+            color: #b0b0b0;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .stat-item .placeholder-line {
+            height: 24px;
+            width: 50px;
+            margin: 0 auto 4px;
+            background: #d0d0d0;
+        }
+
+        .stat-item .placeholder-line.small {
+            height: 12px;
+            width: 40px;
+            margin: 0 auto;
+        }
+
+        /* ===== Кнопки-плейсхолдеры ===== */
+        .btn-placeholder {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 24px;
+            border-radius: 8px;
+            background: #d0d0d0;
+            color: #999;
+            border: none;
+            font-family: 'PT Sans', sans-serif;
+            font-size: 16px;
+            text-decoration: none;
+            cursor: default;
+        }
+
+        .btn-placeholder i {
+            color: #b0b0b0;
+        }
+
+        .btn-placeholder.outline {
+            background: transparent;
+            border: 1.5px solid #d0d0d0;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        /* ===== Секции ===== */
+        .section-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .section-header .placeholder-line.title {
+            width: 40%;
+            margin: 0 auto 8px;
+            height: 28px;
+            background: #d0d0d0;
+        }
+
+        .section-header .placeholder-line.subtitle {
+            width: 30%;
+            margin: 0 auto;
+            height: 16px;
+            background: #d0d0d0;
+        }
+
+        .features-section {
+            margin-bottom: 48px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: #f0f0f0;
+            padding: 30px 24px;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+        }
+
+        .feature-card .placeholder-circle {
+            background: #d0d0d0;
+            width: 64px;
+            height: 64px;
+        }
+
+        .feature-card .placeholder-line {
+            background: #d0d0d0;
+        }
+
+        .transport-section {
+            margin-bottom: 48px;
+        }
+
+        .transport-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+        }
+
+        .transport-card {
+            background: #f0f0f0;
+            padding: 30px 20px;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+        }
+
+        .transport-card i {
+            font-size: 40px;
+            color: #b0b0b0;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .transport-card .placeholder-line {
+            background: #d0d0d0;
+        }
+
+        .transport-card .badge-placeholder {
+            display: inline-block;
+            background: #d0d0d0;
+            color: #aaa;
+            font-size: 11px;
+            padding: 3px 12px;
+            border-radius: 20px;
+            margin-top: 8px;
+            height: 22px;
+            width: 70px;
+        }
+
+        /* ===== СЛАЙДЕР ГАЛЕРЕЯ (МАКЕТ) ===== */
+        .gallery-section {
+            margin-bottom: 48px;
+        }
+
+        .gallery-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            background: #f0f0f0;
+            border: 1px solid #e0e0e0;
+        }
+
+        .gallery-track {
+            display: flex;
+            transition: none;
+        }
+
+        .gallery-slide {
+            min-width: 100%;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .gallery-slide .slide-placeholder {
+            width: 100%;
+            height: 400px;
+            background: #e8e8e8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .gallery-slide .slide-placeholder i {
+            font-size: 56px;
+            color: #c0c0c0;
+        }
+
+        .gallery-slide .slide-placeholder .placeholder-line {
+            background: #d0d0d0;
+            height: 20px;
+            width: 60%;
+            margin: 0 auto;
+        }
+
+        .gallery-slide .slide-placeholder .placeholder-line.small {
+            height: 14px;
+            width: 40%;
+        }
+
+        .gallery-slide .slide-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 30px;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.3));
+        }
+
+        .gallery-slide .slide-overlay .placeholder-line {
+            background: rgba(255, 255, 255, 0.5);
+            height: 18px;
+            width: 50%;
+        }
+
+        .gallery-slide .slide-overlay .placeholder-line.small {
+            height: 12px;
+            width: 35%;
+        }
+
+        .gallery-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(200, 200, 200, 0.9);
+            border: none;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            cursor: default;
+            font-size: 18px;
+            color: #999;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gallery-btn.prev {
+            left: 16px;
+        }
+
+        .gallery-btn.next {
+            right: 16px;
+        }
+
+        .gallery-dots {
+            position: absolute;
+            bottom: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+
+        .gallery-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(200, 200, 200, 0.5);
+            border: 2px solid rgba(200, 200, 200, 0.3);
+            cursor: default;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-dot.active {
+            background: #b0b0b0;
+            border-color: #b0b0b0;
+        }
+
+        /* ===== ФУТЕР ===== */
+        .main-footer {
+            background: #f0f0f0;
+            border-top: 1px solid #e0e0e0;
+            padding: 40px 0 24px;
+            margin-top: 24px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .footer-address {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 15px;
+            color: #999;
+        }
+
+        .footer-address i {
+            color: #b0b0b0;
+            font-size: 18px;
+        }
+
+        .footer-address .placeholder-line {
+            background: #d0d0d0;
+            height: 14px;
+            width: 250px;
+            margin: 0;
+        }
+
+        .footer-divider {
+            width: 80px;
+            height: 2px;
+            background: #d0d0d0;
+            margin: 4px 0;
+        }
+
+        .footer-phone {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 15px;
+        }
+
+        .footer-phone i {
+            color: #b0b0b0;
+            font-size: 18px;
+        }
+
+        .footer-phone .placeholder-line {
+            background: #d0d0d0;
+            height: 14px;
+            width: 150px;
+            margin: 0;
+        }
+
+        .footer-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #999;
+            text-align: center;
+            max-width: 500px;
+        }
+
+        .footer-info i {
+            color: #b0b0b0;
+        }
+
+        .footer-info .placeholder-line {
+            background: #d0d0d0;
+            height: 13px;
+            width: 350px;
+            margin: 0;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 16px auto 0;
+            padding: 20px 24px 0;
+            border-top: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+            color: #999;
+        }
+
+        .footer-brand i {
+            color: #b0b0b0;
+        }
+
+        .footer-brand .placeholder-line {
+            background: #d0d0d0;
+            height: 14px;
+            width: 120px;
+            margin: 0;
+        }
+
+        .footer-copy .placeholder-line {
+            background: #d0d0d0;
+            height: 12px;
+            width: 200px;
+            margin: 0;
+        }
+
+        /* ===== МЕДИА ЗАПРОСЫ ===== */
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 30px 24px;
+            }
+
+            .hero-stats {
+                gap: 20px;
+            }
+
+            .gallery-slide .slide-placeholder {
+                height: 280px;
+            }
+
+            .gallery-btn {
+                width: 36px;
+                height: 36px;
+                font-size: 14px;
+            }
+
+            .gallery-btn.prev {
+                left: 10px;
+            }
+
+            .gallery-btn.next {
+                right: 10px;
+            }
+
+            .gallery-slide .slide-overlay {
+                padding: 14px 20px;
+            }
+
+            .nav-container {
+                height: auto;
+                padding: 12px 16px;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+                width: 100%;
+            }
+
+            .welcome-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-info {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-content {
+                padding: 20px 12px;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+            }
+
+            .hero-actions .btn-placeholder {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .gallery-slide .slide-placeholder {
+                height: 200px;
+            }
+
+            .gallery-btn {
+                width: 30px;
+                height: 30px;
+                font-size: 12px;
+            }
+
+            .gallery-btn.prev {
+                left: 6px;
+            }
+
+            .gallery-btn.next {
+                right: 6px;
+            }
+
+            .gallery-dot {
+                width: 10px;
+                height: 10px;
+            }
+
+            .gallery-slide .slide-overlay {
+                padding: 10px 16px;
+            }
+
+            .footer-address .placeholder-line {
+                width: 160px;
+            }
+
+            .footer-phone .placeholder-line {
+                width: 100px;
+            }
+
+            .footer-info .placeholder-line {
+                width: 200px;
+            }
+
+            .footer-brand .placeholder-line {
+                width: 80px;
+            }
+
+            .footer-copy .placeholder-line {
+                width: 140px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <nav class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-bus"></i>
+                <span>Пассажирам.РФ</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#" class="nav-link active">
+                    <i class="fas fa-home"></i> Главная
+                </a>
+                <a href="#" class="nav-link">
+                    <i class="fas fa-user-shield"></i> Админ-панель
+                </a>
+                <a href="#" class="nav-link">
+                    <i class="fas fa-user"></i> Личный кабинет
+                </a>
+                <a href="#" class="nav-link">
+                    <i class="fas fa-sign-out-alt"></i> Выйти
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <!-- Баннер приветствия -->
+        <div class="welcome-banner">
+            <div class="welcome-content">
+                <i class="fas fa-user-circle"></i>
+                <div style="flex:1;">
+                    <span class="placeholder-line title" style="width:60%; height:24px;"></span>
+                    <span class="placeholder-line long" style="width:80%; height:14px;"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hero секция -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <span class="placeholder-line title" style="width:80%; height:32px;"></span>
+                <span class="placeholder-line subtitle" style="width:50%; height:20px;"></span>
+                <span class="placeholder-line long" style="width:90%; height:14px;"></span>
+                <span class="placeholder-line long" style="width:70%; height:14px;"></span>
+                <span class="placeholder-line medium" style="width:60%; height:14px; margin-bottom:20px;"></span>
+                
+                <div class="hero-actions">
+                    <span class="btn-placeholder">
+                        <i class="fas fa-plus-circle"></i> Подать заявку
+                    </span>
+                    <span class="btn-placeholder outline">
+                        <i class="fas fa-history"></i> Мои заявки
+                    </span>
+                </div>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <i class="fas fa-users"></i>
+                    <span class="placeholder-line" style="height:24px; width:50px; margin:0 auto 4px;"></span>
+                    <span class="placeholder-line small" style="height:12px; width:40px; margin:0 auto;"></span>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-clock"></i>
+                    <span class="placeholder-line" style="height:24px; width:50px; margin:0 auto 4px;"></span>
+                    <span class="placeholder-line small" style="height:12px; width:40px; margin:0 auto;"></span>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-star"></i>
+                    <span class="placeholder-line" style="height:24px; width:50px; margin:0 auto 4px;"></span>
+                    <span class="placeholder-line small" style="height:12px; width:40px; margin:0 auto;"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Как это работает -->
+        <section class="features-section">
+            <div class="section-header">
+                <span class="placeholder-line title" style="width:40%; margin:0 auto 8px;"></span>
+                <span class="placeholder-line subtitle" style="width:30%; margin:0 auto;"></span>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="placeholder-circle"></div>
+                    <span class="placeholder-line title" style="width:60%; margin:0 auto 6px; height:18px;"></span>
+                    <span class="placeholder-line long" style="width:80%; margin:0 auto;"></span>
+                    <span class="placeholder-line medium" style="width:60%; margin:0 auto;"></span>
+                </div>
+                <div class="feature-card">
+                    <div class="placeholder-circle"></div>
+                    <span class="placeholder-line title" style="width:60%; margin:0 auto 6px; height:18px;"></span>
+                    <span class="placeholder-line long" style="width:80%; margin:0 auto;"></span>
+                    <span class="placeholder-line medium" style="width:60%; margin:0 auto;"></span>
+                </div>
+                <div class="feature-card">
+                    <div class="placeholder-circle"></div>
+                    <span class="placeholder-line title" style="width:60%; margin:0 auto 6px; height:18px;"></span>
+                    <span class="placeholder-line long" style="width:80%; margin:0 auto;"></span>
+                    <span class="placeholder-line medium" style="width:60%; margin:0 auto;"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Виды транспорта -->
+        <section class="transport-section">
+            <div class="section-header">
+                <span class="placeholder-line title" style="width:40%; margin:0 auto 8px;"></span>
+                <span class="placeholder-line subtitle" style="width:30%; margin:0 auto;"></span>
+            </div>
+            <div class="transport-grid">
+                <div class="transport-card">
+                    <i class="fas fa-bus"></i>
+                    <span class="placeholder-line title" style="width:50%; margin:0 auto 6px; height:18px;"></span>
+                    <span class="placeholder-line small" style="width:40%; margin:0 auto;"></span>
+                    <span class="badge-placeholder"></span>
+                </div>
+                <div class="transport-card">
+                    <i class="fas fa-bolt"></i>
+                    <span class="placeholder-line title" style="width:50%; margin:0 auto 6px; height:18px;"></span>
+                    <span class="placeholder-line small" style="width:40%; margin:0 auto;"></span>
+                    <span class="badge-placeholder"></span>
+                </div>
+                <div class="transport-card">
+                    <i class="fas fa-train"></i>
+                    <span class="placeholder-line title" style="width:50%; margin:0 auto 6px; height:18px;"></span>
+                    <span class="placeholder-line small" style="width:40%; margin:0 auto;"></span>
+                    <span class="badge-placeholder"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Галерея (макет) -->
+        <section class="gallery-section">
+            <div class="section-header">
+                <span class="placeholder-line title" style="width:40%; margin:0 auto 8px;"></span>
+                <span class="placeholder-line subtitle" style="width:30%; margin:0 auto;"></span>
+            </div>
+            <div class="gallery-container">
+                <div class="gallery-track">
+                    <div class="gallery-slide">
+                        <div class="slide-placeholder">
+                            <i class="fas fa-image"></i>
+                            <span class="placeholder-line" style="width:60%; height:20px;"></span>
+                            <span class="placeholder-line small" style="width:40%; height:14px;"></span>
+                        </div>
+                        <div class="slide-overlay">
+                            <span class="placeholder-line" style="width:50%; height:16px; background:rgba(255,255,255,0.4);"></span>
+                            <span class="placeholder-line small" style="width:35%; height:12px; background:rgba(255,255,255,0.3);"></span>
+                        </div>
+                    </div>
+                    <div class="gallery-slide">
+                        <div class="slide-placeholder">
+                            <i class="fas fa-image"></i>
+                            <span class="placeholder-line" style="width:60%; height:20px;"></span>
+                            <span class="placeholder-line small" style="width:40%; height:14px;"></span>
+                        </div>
+                        <div class="slide-overlay">
+                            <span class="placeholder-line" style="width:50%; height:16px; background:rgba(255,255,255,0.4);"></span>
+                            <span class="placeholder-line small" style="width:35%; height:12px; background:rgba(255,255,255,0.3);"></span>
+                        </div>
+                    </div>
+                    <div class="gallery-slide">
+                        <div class="slide-placeholder">
+                            <i class="fas fa-image"></i>
+                            <span class="placeholder-line" style="width:60%; height:20px;"></span>
+                            <span class="placeholder-line small" style="width:40%; height:14px;"></span>
+                        </div>
+                        <div class="slide-overlay">
+                            <span class="placeholder-line" style="width:50%; height:16px; background:rgba(255,255,255,0.4);"></span>
+                            <span class="placeholder-line small" style="width:35%; height:12px; background:rgba(255,255,255,0.3);"></span>
+                        </div>
+                    </div>
+                    <div class="gallery-slide">
+                        <div class="slide-placeholder">
+                            <i class="fas fa-image"></i>
+                            <span class="placeholder-line" style="width:60%; height:20px;"></span>
+                            <span class="placeholder-line small" style="width:40%; height:14px;"></span>
+                        </div>
+                        <div class="slide-overlay">
+                            <span class="placeholder-line" style="width:50%; height:16px; background:rgba(255,255,255,0.4);"></span>
+                            <span class="placeholder-line small" style="width:35%; height:12px; background:rgba(255,255,255,0.3);"></span>
+                        </div>
+                    </div>
+                </div>
+                <span class="gallery-btn prev">
+                    <i class="fas fa-chevron-left"></i>
+                </span>
+                <span class="gallery-btn next">
+                    <i class="fas fa-chevron-right"></i>
+                </span>
+                <div class="gallery-dots">
+                    <span class="gallery-dot active"></span>
+                    <span class="gallery-dot"></span>
+                    <span class="gallery-dot"></span>
+                    <span class="gallery-dot"></span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-address">
+                <i class="fas fa-map-marker-alt"></i>
+                <span class="placeholder-line" style="height:14px; width:220px;"></span>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="footer-phone">
+                <i class="fas fa-phone"></i>
+                <span class="placeholder-line" style="height:14px; width:140px;"></span>
+            </div>
+            <div class="footer-info">
+                <i class="fas fa-info-circle"></i>
+                <span class="placeholder-line" style="height:13px; width:320px;"></span>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-brand">
+                <i class="fas fa-bus"></i>
+                <span class="placeholder-line" style="height:14px; width:110px;"></span>
+            </div>
+            <div class="footer-copy">
+                <span class="placeholder-line" style="height:12px; width:180px;"></span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Макет | Личный кабинет</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'PT Sans', sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .placeholder-line {
+            display: block;
+            background: #d0d0d0;
+            border-radius: 4px;
+            height: 14px;
+        }
+
+        .placeholder-line.title {
+            height: 24px;
+            width: 60%;
+        }
+
+        .placeholder-line.subtitle {
+            height: 16px;
+            width: 40%;
+        }
+
+        .placeholder-line.name {
+            height: 28px;
+            width: 200px;
+        }
+
+        .placeholder-line.email {
+            height: 16px;
+            width: 180px;
+        }
+
+        .placeholder-line.phone {
+            height: 14px;
+            width: 140px;
+        }
+
+        .placeholder-line.badge {
+            height: 26px;
+            width: 100px;
+            border-radius: 20px;
+        }
+
+        .placeholder-line.btn {
+            height: 38px;
+            width: 160px;
+            border-radius: 8px;
+        }
+
+        .placeholder-line.btn-small {
+            height: 32px;
+            width: 120px;
+            border-radius: 6px;
+        }
+
+        .placeholder-line.card-title {
+            height: 18px;
+            width: 150px;
+        }
+
+        .placeholder-icon {
+            color: #b0b0b0;
+            font-size: 28px;
+            display: inline-block;
+        }
+
+        .placeholder-icon.large {
+            font-size: 36px;
+        }
+
+        .placeholder-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: #d0d0d0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .placeholder-circle i {
+            color: #b0b0b0;
+            font-size: 36px;
+        }
+
+        .main-header {
+            background: #f0f0f0;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 68px;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 20px;
+            color: #888;
+        }
+
+        .nav-brand i {
+            font-size: 26px;
+            color: #b0b0b0;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-link {
+            padding: 8px 16px;
+            text-decoration: none;
+            color: #999;
+            font-size: 15px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: default;
+        }
+
+        .nav-link i {
+            color: #b0b0b0;
+        }
+
+        .nav-link.active {
+            color: #666;
+            background: #e8e8e8;
+        }
+
+        .main-content {
+            flex: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 24px;
+            width: 100%;
+        }
+
+        .profile-header {
+            background: #f0f0f0;
+            border-radius: 16px;
+            padding: 30px 32px;
+            border: 1px solid #e0e0e0;
+            margin-bottom: 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .profile-info {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .profile-details {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .profile-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .profile-actions .placeholder-line {
+            background: #d0d0d0;
+        }
+
+        .applications-section {
+            margin-bottom: 32px;
+        }
+
+        .applications-section .placeholder-line.title {
+            height: 24px;
+            width: 200px;
+            margin-bottom: 16px;
+        }
+
+        .applications-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .application-card {
+            background: #f0f0f0;
+            border-radius: 12px;
+            padding: 20px 24px;
+            border: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .application-info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .application-info .placeholder-line {
+            background: #d0d0d0;
+        }
+
+        .application-status {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .application-status .placeholder-line {
+            background: #d0d0d0;
+        }
+
+        .main-footer {
+            background: #f0f0f0;
+            border-top: 1px solid #e0e0e0;
+            padding: 40px 0 24px;
+            margin-top: 24px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .footer-address {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 15px;
+            color: #999;
+        }
+
+        .footer-address i {
+            color: #b0b0b0;
+            font-size: 18px;
+        }
+
+        .footer-address .placeholder-line {
+            background: #d0d0d0;
+            height: 14px;
+            width: 220px;
+        }
+
+        .footer-divider {
+            width: 80px;
+            height: 2px;
+            background: #d0d0d0;
+            margin: 4px 0;
+        }
+
+        .footer-phone {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 15px;
+        }
+
+        .footer-phone i {
+            color: #b0b0b0;
+            font-size: 18px;
+        }
+
+        .footer-phone .placeholder-line {
+            background: #d0d0d0;
+            height: 14px;
+            width: 140px;
+        }
+
+        .footer-info {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #999;
+            text-align: center;
+            max-width: 500px;
+        }
+
+        .footer-info i {
+            color: #b0b0b0;
+        }
+
+        .footer-info .placeholder-line {
+            background: #d0d0d0;
+            height: 13px;
+            width: 320px;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 16px auto 0;
+            padding: 20px 24px 0;
+            border-top: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+            color: #999;
+        }
+
+        .footer-brand i {
+            color: #b0b0b0;
+        }
+
+        .footer-brand .placeholder-line {
+            background: #d0d0d0;
+            height: 14px;
+            width: 110px;
+        }
+
+        .footer-copy .placeholder-line {
+            background: #d0d0d0;
+            height: 12px;
+            width: 180px;
+        }
+
+        @media (max-width: 768px) {
+            .profile-header {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .profile-info {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-actions {
+                justify-content: center;
+            }
+
+            .application-card {
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
+            }
+
+            .application-status {
+                justify-content: center;
+            }
+
+            .nav-container {
+                height: auto;
+                padding: 12px 16px;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .nav-menu {
+                flex-wrap: wrap;
+                justify-content: center;
+                width: 100%;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-info {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-content {
+                padding: 20px 12px;
+            }
+
+            .placeholder-circle {
+                width: 60px;
+                height: 60px;
+            }
+
+            .placeholder-circle i {
+                font-size: 28px;
+            }
+
+            .placeholder-line.name {
+                width: 140px;
+            }
+
+            .placeholder-line.btn {
+                width: 100%;
+            }
+
+            .footer-address .placeholder-line {
+                width: 160px;
+            }
+
+            .footer-phone .placeholder-line {
+                width: 100px;
+            }
+
+            .footer-info .placeholder-line {
+                width: 200px;
+            }
+
+            .footer-brand .placeholder-line {
+                width: 80px;
+            }
+
+            .footer-copy .placeholder-line {
+                width: 140px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <nav class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-bus"></i>
+                <span>Пассажирам.РФ</span>
+            </div>
+            <div class="nav-menu">
+                <a href="#" class="nav-link">
+                    <i class="fas fa-home"></i> Главная
+                </a>
+                <a href="#" class="nav-link active">
+                    <i class="fas fa-user"></i> Личный кабинет
+                </a>
+                <a href="#" class="nav-link">
+                    <i class="fas fa-user-shield"></i> Админ-панель
+                </a>
+                <a href="#" class="nav-link">
+                    <i class="fas fa-sign-out-alt"></i> Выйти
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <!-- Профиль пользователя -->
+        <section class="profile-header">
+            <div class="profile-info">
+                <div class="placeholder-circle">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="profile-details">
+                    <span class="placeholder-line name"></span>
+                    <span class="placeholder-line email"></span>
+                    <span class="placeholder-line phone"></span>
+                </div>
+            </div>
+            <div class="profile-actions">
+                <span class="placeholder-line btn"></span>
+            </div>
+        </section>
+
+        <!-- Заявки -->
+        <section class="applications-section">
+            <span class="placeholder-line title"></span>
+            <div class="applications-grid">
+                <div class="application-card">
+                    <div class="application-info">
+                        <span class="placeholder-line" style="width:80px; height:12px;"></span>
+                        <span class="placeholder-line" style="width:200px; height:16px;"></span>
+                        <span class="placeholder-line" style="width:120px; height:12px;"></span>
+                    </div>
+                    <div class="application-status">
+                        <span class="placeholder-line badge"></span>
+                        <span class="placeholder-line btn-small"></span>
+                    </div>
+                </div>
+                <div class="application-card">
+                    <div class="application-info">
+                        <span class="placeholder-line" style="width:80px; height:12px;"></span>
+                        <span class="placeholder-line" style="width:200px; height:16px;"></span>
+                        <span class="placeholder-line" style="width:120px; height:12px;"></span>
+                    </div>
+                    <div class="application-status">
+                        <span class="placeholder-line badge"></span>
+                        <span class="placeholder-line btn-small"></span>
+                    </div>
+                </div>
+                <div class="application-card">
+                    <div class="application-info">
+                        <span class="placeholder-line" style="width:80px; height:12px;"></span>
+                        <span class="placeholder-line" style="width:200px; height:16px;"></span>
+                        <span class="placeholder-line" style="width:120px; height:12px;"></span>
+                    </div>
+                    <div class="application-status">
+                        <span class="placeholder-line badge"></span>
+                        <span class="placeholder-line btn-small"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-address">
+                <i class="fas fa-map-marker-alt"></i>
+                <span class="placeholder-line"></span>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="footer-phone">
+                <i class="fas fa-phone"></i>
+                <span class="placeholder-line"></span>
+            </div>
+            <div class="footer-info">
+                <i class="fas fa-info-circle"></i>
+                <span class="placeholder-line"></span>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="footer-brand">
+                <i class="fas fa-bus"></i>
+                <span class="placeholder-line"></span>
+            </div>
+            <div class="footer-copy">
+                <span class="placeholder-line"></span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

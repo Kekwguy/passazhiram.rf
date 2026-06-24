@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Макет | Создание заявки</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'PT Sans', sans-serif;
+            background: #f5f5f5;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .placeholder-line {
+            display: block;
+            background: #d0d0d0;
+            border-radius: 4px;
+            height: 14px;
+        }
+
+        .placeholder-line.title {
+            height: 28px;
+            width: 70%;
+            margin: 0 auto 6px;
+        }
+
+        .placeholder-line.subtitle {
+            height: 16px;
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        .placeholder-line.input {
+            height: 44px;
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .placeholder-line.btn {
+            height: 44px;
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        .placeholder-line.hint {
+            height: 16px;
+            width: 80%;
+            margin-top: 2px;
+        }
+
+        .placeholder-icon {
+            color: #b0b0b0;
+            font-size: 42px;
+            display: inline-block;
+        }
+
+        .application-container {
+            width: 100%;
+            max-width: 560px;
+        }
+
+        .application-card {
+            background: #f0f0f0;
+            padding: 40px 35px;
+            border-radius: 16px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .logo-section {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .logo-section .placeholder-icon {
+            font-size: 42px;
+            background: #e8e8e8;
+            padding: 15px;
+            border-radius: 50%;
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+
+        .logo-section .placeholder-line {
+            background: #d0d0d0;
+        }
+
+        .application-form {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .form-group label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: #999;
+        }
+
+        .form-group label i {
+            color: #b0b0b0;
+        }
+
+        .form-group label .required {
+            color: #aaa;
+            font-size: 16px;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 4px;
+        }
+
+        .form-actions .placeholder-line {
+            flex: 1;
+            height: 44px;
+            border-radius: 8px;
+        }
+
+        .form-footer {
+            text-align: center;
+            padding-top: 6px;
+            font-size: 14px;
+            color: #999;
+            border-top: 1px solid #e0e0e0;
+            padding-top: 16px;
+            margin-top: 4px;
+        }
+
+        .form-footer a {
+            color: #aaa;
+            text-decoration: none;
+            cursor: default;
+        }
+
+        .payment-hint {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 12px;
+            color: #999;
+            margin-top: 2px;
+        }
+
+        .payment-hint i {
+            color: #b0b0b0;
+        }
+
+        @media (max-width: 480px) {
+            .application-card {
+                padding: 28px 20px;
+            }
+
+            .form-actions {
+                flex-direction: column;
+            }
+
+            .form-actions .placeholder-line {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="application-container">
+        <div class="application-card">
+            <div class="logo-section">
+                <span class="placeholder-icon"><i class="fas fa-file-alt"></i></span>
+                <span class="placeholder-line title"></span>
+                <span class="placeholder-line subtitle"></span>
+            </div>
+
+            <form class="application-form">
+                <div class="form-group">
+                    <label>
+                        <i class="fas fa-bus"></i> Вид транспорта <span class="required">*</span>
+                    </label>
+                    <span class="placeholder-line input"></span>
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <i class="fas fa-calendar-alt"></i> Дата начала обучения <span class="required">*</span>
+                    </label>
+                    <span class="placeholder-line input"></span>
+                </div>
+
+                <div class="form-group">
+                    <label>
+                        <i class="fas fa-credit-card"></i> Способ оплаты <span class="required">*</span>
+                    </label>
+                    <span class="placeholder-line input"></span>
+                    <div class="payment-hint">
+                        <i class="fas fa-info-circle"></i>
+                        <span class="placeholder-line hint"></span>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <span class="placeholder-line btn"></span>
+                    <span class="placeholder-line btn"></span>
+                </div>
+
+                <div class="form-footer">
+                    <a href="#">← Вернуться в личный кабинет</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
